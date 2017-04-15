@@ -27,4 +27,11 @@ def word_count():
     counts = wc.reduceByKey(add)
     print counts.collect()
 
-word_count()
+def parallelize_show():
+    sc = SparkContext()
+    x = sc.parallelize([('a',1), ('b',2), ('a',3)])
+    def add(a,b):
+        return a + str(b)
+
+    print x.combineByKey(str, add, add).collect()
+parallelize_show()
