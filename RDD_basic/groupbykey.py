@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from pyspark import SparkContext
 
-path = "/Users/mac/Desktop/data.txt"
-#创建sc
+path = "hdfs:localhost:8020/test/data.txt"
+# path = "/Users/mac/Desktop/data.txt"
+#创建scZZ
 sc = SparkContext('local', 'app name')
 
 def grouping():
